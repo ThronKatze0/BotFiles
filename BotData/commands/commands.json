@@ -1,0 +1,2717 @@
+{
+  "command": [
+    {
+      "name": "start",
+      "perms": [],
+      "actions": [
+        {
+          "name": "check data",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "send sry",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF0F0F",
+              "title": "OOOOPS!",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Jemand anderes nutzt gerade den QuizBot. Versuche es in ein paar Minuten nochmal.",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "sry",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "waitlel",
+              "category": "Control",
+              "type": "Wait",
+              "messageActionRows": [],
+              "waitduration": "3",
+              "unit": "seconds"
+            },
+            {
+              "name": "del embed",
+              "category": "Message",
+              "type": "Delete Message",
+              "messageActionRows": [],
+              "varname": "${tempVars.sry.id}",
+              "channelname": "${dbsVars.CommandChannel.id}"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "set data",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "952883501106081882",
+              "field": "isrunning",
+              "fieldvalue": "1"
+            },
+            {
+              "name": "create channel",
+              "category": "Channel Action",
+              "type": "Create Channel",
+              "messageActionRows": [],
+              "channelname": "quiz von ${dbsVars.CommandAuthor.displayName}",
+              "chancategory": "Aktive Quizze",
+              "reason": "",
+              "channeltype": "Text",
+              "savetovariable": "quizchannel",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "give user permissions",
+              "category": "Channel Action",
+              "type": "Update Channel Permissions",
+              "messageActionRows": [],
+              "channelname": "${tempVars.quizchannel.id}",
+              "permid": "${dbsVars.CommandAuthor.id}",
+              "permissions": [
+                "ADD_REACTIONS",
+                "VIEW_AUDIT_LOG",
+                "VIEW_CHANNEL"
+              ],
+              "allow": "Allow"
+            },
+            {
+              "name": "reaction menu_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${tempVars.quizchannel.id}",
+              "color": "70FF4D",
+              "title": "1.Frage",
+              "url": "",
+              "authorname": "Quizbot",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Wie lautet der Name den Carags Pflegefamilie\nihm gibt?\n\n1️⃣ Mystery Boy\n2️⃣ Malcom\n3️⃣ Jay\n4️⃣ Brandon\n",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "question1",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "listener_1",
+              "category": "Reaction",
+              "type": "Add Reaction Listener",
+              "reactionActions": {
+                "1️⃣": [
+                  {
+                    "name": "delete question1",
+                    "category": "Message",
+                    "type": "Delete Message",
+                    "messageActionRows": [],
+                    "varname": "${tempVars.question1.id}",
+                    "channelname": "${tempVars.quizchannel.id}"
+                  },
+                  {
+                    "name": "falsch",
+                    "category": "Message",
+                    "type": "Send Embed",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "color": "FF0000",
+                    "title": "Leider Falsch!",
+                    "url": "",
+                    "authorname": "",
+                    "authorimageurl": "",
+                    "authorlink": "",
+                    "description": "Carags Menschenname lautet Jay. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                    "thumbnail": "",
+                    "image": "",
+                    "footer": "",
+                    "timestamp": "false",
+                    "savetovariable": "false",
+                    "savetovariabletype": "temp"
+                  },
+                  {
+                    "name": "wait",
+                    "category": "Control",
+                    "type": "Wait",
+                    "messageActionRows": [],
+                    "waitduration": "3",
+                    "unit": "seconds"
+                  },
+                  {
+                    "name": "delete channel",
+                    "category": "Channel Action",
+                    "type": "Delete Channel",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "reason": ""
+                  },
+                  {
+                    "name": "set back_2_1_1_1_1_1_1_1_1_3",
+                    "category": "User Data",
+                    "type": "Set User Data",
+                    "messageActionRows": [],
+                    "user": "952883501106081882",
+                    "field": "isrunning",
+                    "fieldvalue": "0"
+                  }
+                ],
+                "2️⃣": [
+                  {
+                    "name": "delete question1_1",
+                    "category": "Message",
+                    "type": "Delete Message",
+                    "messageActionRows": [],
+                    "varname": "${tempVars.question1.id}",
+                    "channelname": "${tempVars.quizchannel.id}"
+                  },
+                  {
+                    "name": "falsch_1",
+                    "category": "Message",
+                    "type": "Send Embed",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "color": "FF0000",
+                    "title": "Leider Falsch!",
+                    "url": "",
+                    "authorname": "",
+                    "authorimageurl": "",
+                    "authorlink": "",
+                    "description": "Carags Menschenname lautet Jay. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich von selbst.",
+                    "thumbnail": "",
+                    "image": "",
+                    "footer": "",
+                    "timestamp": "false",
+                    "savetovariable": "",
+                    "savetovariabletype": "temp"
+                  },
+                  {
+                    "name": "wait_1",
+                    "category": "Control",
+                    "type": "Wait",
+                    "messageActionRows": [],
+                    "waitduration": "3",
+                    "unit": "seconds"
+                  },
+                  {
+                    "name": "delete channel_1",
+                    "category": "Channel Action",
+                    "type": "Delete Channel",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "reason": ""
+                  },
+                  {
+                    "name": "set back_2_1_1_1_1_1_1_1_1_2",
+                    "category": "User Data",
+                    "type": "Set User Data",
+                    "messageActionRows": [],
+                    "user": "952883501106081882",
+                    "field": "isrunning",
+                    "fieldvalue": "0"
+                  }
+                ],
+                "3️⃣": [
+                  {
+                    "name": "delete question1_1_2",
+                    "category": "Message",
+                    "type": "Delete Message",
+                    "messageActionRows": [],
+                    "varname": "${tempVars.question1.id}",
+                    "channelname": "${tempVars.quizchannel.id}"
+                  },
+                  {
+                    "name": "richtig",
+                    "category": "Message",
+                    "type": "Send Embed",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "color": "12FF26",
+                    "title": "RICHTIG!",
+                    "url": "",
+                    "authorname": "",
+                    "authorimageurl": "",
+                    "authorlink": "",
+                    "description": "Du bist ja richtig gut, aber schaffst du auch die\nnächste Frage?",
+                    "thumbnail": "",
+                    "image": "",
+                    "footer": "",
+                    "timestamp": "false",
+                    "savetovariable": "right",
+                    "savetovariabletype": "temp"
+                  },
+                  {
+                    "name": "wait_1_1",
+                    "category": "Control",
+                    "type": "Wait",
+                    "messageActionRows": [],
+                    "waitduration": "3",
+                    "unit": "seconds"
+                  },
+                  {
+                    "name": "delete question1_1_2_1",
+                    "category": "Message",
+                    "type": "Delete Message",
+                    "messageActionRows": [],
+                    "varname": "${tempVars.right.id}",
+                    "channelname": "${tempVars.quizchannel.id}"
+                  },
+                  {
+                    "name": "reaction menu_1_1",
+                    "category": "Message",
+                    "type": "Send Embed",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "color": "70FF4D",
+                    "title": "2.Frage",
+                    "url": "",
+                    "authorname": "Quizbot",
+                    "authorimageurl": "",
+                    "authorlink": "",
+                    "description": "Wie heißt die Schule, auf die\nCarag eingeladen wird?\n\n1️⃣ Clearwater High\n2️⃣ Blue Reef High\n3️⃣ Redcliff High\n4️⃣ Colegio La Chamba\n",
+                    "thumbnail": "",
+                    "image": "",
+                    "footer": "",
+                    "timestamp": "false",
+                    "savetovariable": "question2",
+                    "savetovariabletype": "temp"
+                  },
+                  {
+                    "name": "listener_1_1",
+                    "category": "Reaction",
+                    "type": "Add Reaction Listener",
+                    "reactionActions": {
+                      "1️⃣": [
+                        {
+                          "name": "delete question1_2_2",
+                          "category": "Message",
+                          "type": "Delete Message",
+                          "messageActionRows": [],
+                          "varname": "${tempVars.question2.id}",
+                          "channelname": "${tempVars.quizchannel.id}"
+                        },
+                        {
+                          "name": "richtig_1",
+                          "category": "Message",
+                          "type": "Send Embed",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "color": "12FF26",
+                          "title": "RICHTIG!",
+                          "url": "",
+                          "authorname": "",
+                          "authorimageurl": "",
+                          "authorlink": "",
+                          "description": "Das war ja gar nicht so schlecht, aber ich glaube die\nnächste Frage weißt du nicht!",
+                          "thumbnail": "",
+                          "image": "",
+                          "footer": "",
+                          "timestamp": "false",
+                          "savetovariable": "right2",
+                          "savetovariabletype": "temp"
+                        },
+                        {
+                          "name": "wait_1_1_1",
+                          "category": "Control",
+                          "type": "Wait",
+                          "messageActionRows": [],
+                          "waitduration": "3",
+                          "unit": "seconds"
+                        },
+                        {
+                          "name": "delete question1_1_2_1_1",
+                          "category": "Message",
+                          "type": "Delete Message",
+                          "messageActionRows": [],
+                          "varname": "${tempVars.right2.id}",
+                          "channelname": "${tempVars.quizchannel.id}"
+                        },
+                        {
+                          "name": "reaction menu_1_1_1",
+                          "category": "Message",
+                          "type": "Send Embed",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "color": "70FF4D",
+                          "title": "3.Frage",
+                          "url": "",
+                          "authorname": "Quizbot",
+                          "authorimageurl": "",
+                          "authorlink": "",
+                          "description": "Welche 2te Gestalt hat James Bridger?\n\n1️⃣ Wolf\n2️⃣ Kojote\n3️⃣ Puma\n4️⃣ Bison\n",
+                          "thumbnail": "",
+                          "image": "",
+                          "footer": "",
+                          "timestamp": "false",
+                          "savetovariable": "question3",
+                          "savetovariabletype": "temp"
+                        },
+                        {
+                          "name": "listener_1_1_1",
+                          "category": "Reaction",
+                          "type": "Add Reaction Listener",
+                          "reactionActions": {
+                            "1️⃣": [
+                              {
+                                "name": "delete question1_2_2_1",
+                                "category": "Message",
+                                "type": "Delete Message",
+                                "messageActionRows": [],
+                                "varname": "${tempVars.question3.id}",
+                                "channelname": "${tempVars.quizchannel.id}"
+                              },
+                              {
+                                "name": "falsch_2_3",
+                                "category": "Message",
+                                "type": "Send Embed",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "color": "FF0000",
+                                "title": "Leider Falsch!",
+                                "url": "",
+                                "authorname": "",
+                                "authorimageurl": "",
+                                "authorlink": "",
+                                "description": "Seine 2te Gestalt ist ein Kojote.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                "thumbnail": "",
+                                "image": "",
+                                "footer": "",
+                                "timestamp": "false",
+                                "savetovariable": "false3",
+                                "savetovariabletype": "temp"
+                              },
+                              {
+                                "name": "wait_3_3",
+                                "category": "Control",
+                                "type": "Wait",
+                                "messageActionRows": [],
+                                "waitduration": "3",
+                                "unit": "seconds"
+                              },
+                              {
+                                "name": "delete channel_2_3",
+                                "category": "Channel Action",
+                                "type": "Delete Channel",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "reason": ""
+                              },
+                              {
+                                "name": "set back_2_1_1_1_1_1_1_3",
+                                "category": "User Data",
+                                "type": "Set User Data",
+                                "messageActionRows": [],
+                                "user": "952883501106081882",
+                                "field": "isrunning",
+                                "fieldvalue": "0"
+                              }
+                            ],
+                            "2️⃣": [
+                              {
+                                "name": "delete question1_2_2_4",
+                                "category": "Message",
+                                "type": "Delete Message",
+                                "messageActionRows": [],
+                                "varname": "${tempVars.question3.id}",
+                                "channelname": "${tempVars.quizchannel.id}"
+                              },
+                              {
+                                "name": "richtig_1_1",
+                                "category": "Message",
+                                "type": "Send Embed",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "color": "12FF26",
+                                "title": "RICHTIG!",
+                                "url": "",
+                                "authorname": "",
+                                "authorimageurl": "",
+                                "authorlink": "",
+                                "description": "Puh schon 3 Fragen geschafft!\nDu weißt aber schon, dass es 10 gibt😳",
+                                "thumbnail": "",
+                                "image": "",
+                                "footer": "",
+                                "timestamp": "false",
+                                "savetovariable": "right3",
+                                "savetovariabletype": "temp"
+                              },
+                              {
+                                "name": "wait_3_3_2_1",
+                                "category": "Control",
+                                "type": "Wait",
+                                "messageActionRows": [],
+                                "waitduration": "3",
+                                "unit": "seconds"
+                              },
+                              {
+                                "name": "delete question1_1_2_1_1_1",
+                                "category": "Message",
+                                "type": "Delete Message",
+                                "messageActionRows": [],
+                                "varname": "${tempVars.right3.id}",
+                                "channelname": "${tempVars.quizchannel.id}"
+                              },
+                              {
+                                "name": "reaction menu_1_1_1_1",
+                                "category": "Message",
+                                "type": "Send Embed",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "color": "70FF4D",
+                                "title": "4.Frage",
+                                "url": "",
+                                "authorname": "Quizbot",
+                                "authorimageurl": "",
+                                "authorlink": "",
+                                "description": "Wo spielt Woodwalkers?\n\n1️⃣ Miami\n2️⃣ Nationalpark Hohe Tauern\n3️⃣ Glacier Nationalpark\n4️⃣ Yellowstone Nationalpark\n",
+                                "thumbnail": "",
+                                "image": "",
+                                "footer": "",
+                                "timestamp": "false",
+                                "savetovariable": "question4",
+                                "savetovariabletype": "temp"
+                              },
+                              {
+                                "name": "listener_1_1_1_1",
+                                "category": "Reaction",
+                                "type": "Add Reaction Listener",
+                                "reactionActions": {
+                                  "1️⃣": [
+                                    {
+                                      "name": "delete question1_2_2_1_1",
+                                      "category": "Message",
+                                      "type": "Delete Message",
+                                      "messageActionRows": [],
+                                      "varname": "${tempVars.question4.id}",
+                                      "channelname": "${tempVars.quizchannel.id}"
+                                    },
+                                    {
+                                      "name": "falsch_2_3_3",
+                                      "category": "Message",
+                                      "type": "Send Embed",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "color": "FF0000",
+                                      "title": "Leider Falsch!",
+                                      "url": "",
+                                      "authorname": "",
+                                      "authorimageurl": "",
+                                      "authorlink": "",
+                                      "description": "Es ist der Yellowstone Nationalpark.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                      "thumbnail": "",
+                                      "image": "",
+                                      "footer": "",
+                                      "timestamp": "false",
+                                      "savetovariable": "false4",
+                                      "savetovariabletype": "temp"
+                                    },
+                                    {
+                                      "name": "wait_3_3_3",
+                                      "category": "Control",
+                                      "type": "Wait",
+                                      "messageActionRows": [],
+                                      "waitduration": "3",
+                                      "unit": "seconds"
+                                    },
+                                    {
+                                      "name": "delete channel_2_3_3",
+                                      "category": "Channel Action",
+                                      "type": "Delete Channel",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "reason": ""
+                                    },
+                                    {
+                                      "name": "set back_2_1_1_1_1_1_3",
+                                      "category": "User Data",
+                                      "type": "Set User Data",
+                                      "messageActionRows": [],
+                                      "user": "952883501106081882",
+                                      "field": "isrunning",
+                                      "fieldvalue": "0"
+                                    }
+                                  ],
+                                  "2️⃣": [
+                                    {
+                                      "name": "delete question1_2_2_1_1_2",
+                                      "category": "Message",
+                                      "type": "Delete Message",
+                                      "messageActionRows": [],
+                                      "varname": "${tempVars.question4.id}",
+                                      "channelname": "${tempVars.quizchannel.id}"
+                                    },
+                                    {
+                                      "name": "falsch_2_3_3_2",
+                                      "category": "Message",
+                                      "type": "Send Embed",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "color": "FF0000",
+                                      "title": "Leider Falsch!",
+                                      "url": "",
+                                      "authorname": "",
+                                      "authorimageurl": "",
+                                      "authorlink": "",
+                                      "description": "Es ist der Yellowstone Nationalpark.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                      "thumbnail": "",
+                                      "image": "",
+                                      "footer": "",
+                                      "timestamp": "false",
+                                      "savetovariable": "false4",
+                                      "savetovariabletype": "temp"
+                                    },
+                                    {
+                                      "name": "wait_3_3_3_3",
+                                      "category": "Control",
+                                      "type": "Wait",
+                                      "messageActionRows": [],
+                                      "waitduration": "3",
+                                      "unit": "seconds"
+                                    },
+                                    {
+                                      "name": "delete channel_2_3_3_2",
+                                      "category": "Channel Action",
+                                      "type": "Delete Channel",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "reason": ""
+                                    },
+                                    {
+                                      "name": "set back_2_1_1_1_1_1_2",
+                                      "category": "User Data",
+                                      "type": "Set User Data",
+                                      "messageActionRows": [],
+                                      "user": "952883501106081882",
+                                      "field": "isrunning",
+                                      "fieldvalue": "0"
+                                    }
+                                  ],
+                                  "3️⃣": [
+                                    {
+                                      "name": "delete question1_2_2_1_1_1",
+                                      "category": "Message",
+                                      "type": "Delete Message",
+                                      "messageActionRows": [],
+                                      "varname": "${tempVars.question4.id}",
+                                      "channelname": "${tempVars.quizchannel.id}"
+                                    },
+                                    {
+                                      "name": "falsch_2_3_3_1",
+                                      "category": "Message",
+                                      "type": "Send Embed",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "color": "FF0000",
+                                      "title": "Leider Falsch!",
+                                      "url": "",
+                                      "authorname": "",
+                                      "authorimageurl": "",
+                                      "authorlink": "",
+                                      "description": "Es ist der Yellowstone Nationalpark.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                      "thumbnail": "",
+                                      "image": "",
+                                      "footer": "",
+                                      "timestamp": "false",
+                                      "savetovariable": "false4",
+                                      "savetovariabletype": "temp"
+                                    },
+                                    {
+                                      "name": "wait_3_3_3_2",
+                                      "category": "Control",
+                                      "type": "Wait",
+                                      "messageActionRows": [],
+                                      "waitduration": "3",
+                                      "unit": "seconds"
+                                    },
+                                    {
+                                      "name": "delete channel_2_3_3_1",
+                                      "category": "Channel Action",
+                                      "type": "Delete Channel",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "reason": ""
+                                    },
+                                    {
+                                      "name": "set back_2_1_1_1_1_1_1",
+                                      "category": "User Data",
+                                      "type": "Set User Data",
+                                      "messageActionRows": [],
+                                      "user": "952883501106081882",
+                                      "field": "isrunning",
+                                      "fieldvalue": "0"
+                                    }
+                                  ],
+                                  "4️⃣": [
+                                    {
+                                      "name": "delete question1_2_2_1_1_1_1",
+                                      "category": "Message",
+                                      "type": "Delete Message",
+                                      "messageActionRows": [],
+                                      "varname": "${tempVars.question4.id}",
+                                      "channelname": "${tempVars.quizchannel.id}"
+                                    },
+                                    {
+                                      "name": "richtig_1_1_1",
+                                      "category": "Message",
+                                      "type": "Send Embed",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "color": "12FF26",
+                                      "title": "RICHTIG!",
+                                      "url": "",
+                                      "authorname": "",
+                                      "authorimageurl": "",
+                                      "authorlink": "",
+                                      "description": "Das Ziel kommt immer näher!",
+                                      "thumbnail": "",
+                                      "image": "",
+                                      "footer": "",
+                                      "timestamp": "false",
+                                      "savetovariable": "right4",
+                                      "savetovariabletype": "temp"
+                                    },
+                                    {
+                                      "name": "wait_3_3_3_1",
+                                      "category": "Control",
+                                      "type": "Wait",
+                                      "messageActionRows": [],
+                                      "waitduration": "3",
+                                      "unit": "seconds"
+                                    },
+                                    {
+                                      "name": "delete question1_1_2_1_1_1_1",
+                                      "category": "Message",
+                                      "type": "Delete Message",
+                                      "messageActionRows": [],
+                                      "varname": "${tempVars.right4.id}",
+                                      "channelname": "${tempVars.quizchannel.id}"
+                                    },
+                                    {
+                                      "name": "reaction menu_1_1_1_1_1",
+                                      "category": "Message",
+                                      "type": "Send Embed",
+                                      "messageActionRows": [],
+                                      "channelname": "${tempVars.quizchannel.id}",
+                                      "color": "70FF4D",
+                                      "title": "5.Frage",
+                                      "url": "",
+                                      "authorname": "Quizbot",
+                                      "authorimageurl": "",
+                                      "authorlink": "",
+                                      "description": "Wie heißt Carags größter Feind?\n\n1️⃣ Jack Clearwater\n2️⃣ Andrew Milling\n3️⃣ Lydia Lennox\n4️⃣ Sierra Blackheart\n",
+                                      "thumbnail": "",
+                                      "image": "",
+                                      "footer": "",
+                                      "timestamp": "false",
+                                      "savetovariable": "question5",
+                                      "savetovariabletype": "temp"
+                                    },
+                                    {
+                                      "name": "listener_1_1_1_1_1",
+                                      "category": "Reaction",
+                                      "type": "Add Reaction Listener",
+                                      "reactionActions": {
+                                        "1️⃣": [
+                                          {
+                                            "name": "delete question1_2_2_1_1_3",
+                                            "category": "Message",
+                                            "type": "Delete Message",
+                                            "messageActionRows": [],
+                                            "varname": "${tempVars.question5.id}",
+                                            "channelname": "${tempVars.quizchannel.id}"
+                                          },
+                                          {
+                                            "name": "falsch_2_3_3_3",
+                                            "category": "Message",
+                                            "type": "Send Embed",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "color": "FF0000",
+                                            "title": "Leider Falsch!",
+                                            "url": "",
+                                            "authorname": "",
+                                            "authorimageurl": "",
+                                            "authorlink": "",
+                                            "description": "Es ist Andrew Milling.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                            "thumbnail": "",
+                                            "image": "",
+                                            "footer": "",
+                                            "timestamp": "false",
+                                            "savetovariable": "false5",
+                                            "savetovariabletype": "temp"
+                                          },
+                                          {
+                                            "name": "wait_3_3_3_4",
+                                            "category": "Control",
+                                            "type": "Wait",
+                                            "messageActionRows": [],
+                                            "waitduration": "3",
+                                            "unit": "seconds"
+                                          },
+                                          {
+                                            "name": "delete channel_2_3_3_3",
+                                            "category": "Channel Action",
+                                            "type": "Delete Channel",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "reason": ""
+                                          },
+                                          {
+                                            "name": "set back_2_1_1_1_1_3",
+                                            "category": "User Data",
+                                            "type": "Set User Data",
+                                            "messageActionRows": [],
+                                            "user": "952883501106081882",
+                                            "field": "isrunning",
+                                            "fieldvalue": "0"
+                                          }
+                                        ],
+                                        "2️⃣": [
+                                          {
+                                            "name": "delete question1_2_2_1_1_3_3",
+                                            "category": "Message",
+                                            "type": "Delete Message",
+                                            "messageActionRows": [],
+                                            "varname": "${tempVars.question5.id}",
+                                            "channelname": "${tempVars.quizchannel.id}"
+                                          },
+                                          {
+                                            "name": "richtig_1_1_1_1",
+                                            "category": "Message",
+                                            "type": "Send Embed",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "color": "12FF26",
+                                            "title": "RICHTIG!",
+                                            "url": "",
+                                            "authorname": "",
+                                            "authorimageurl": "",
+                                            "authorlink": "",
+                                            "description": "Die Hälfte hast du schon geschafft!",
+                                            "thumbnail": "",
+                                            "image": "",
+                                            "footer": "",
+                                            "timestamp": "false",
+                                            "savetovariable": "right5",
+                                            "savetovariabletype": "temp"
+                                          },
+                                          {
+                                            "name": "wait_3_3_3_4_3",
+                                            "category": "Control",
+                                            "type": "Wait",
+                                            "messageActionRows": [],
+                                            "waitduration": "3",
+                                            "unit": "seconds"
+                                          },
+                                          {
+                                            "name": "delete question1_1_2_1_1_1_1_1",
+                                            "category": "Message",
+                                            "type": "Delete Message",
+                                            "messageActionRows": [],
+                                            "varname": "${tempVars.right5.id}",
+                                            "channelname": "${tempVars.quizchannel.id}"
+                                          },
+                                          {
+                                            "name": "reaction menu_1_1_1_1_1_1",
+                                            "category": "Message",
+                                            "type": "Send Embed",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "color": "70FF4D",
+                                            "title": "6.Frage",
+                                            "url": "",
+                                            "authorname": "Quizbot",
+                                            "authorimageurl": "",
+                                            "authorlink": "",
+                                            "description": "In wen verliebt sich Carag in Buch 1?\n\n1️⃣ Tikaani\n2️⃣ Wing\n3️⃣ Lou\n4️⃣ Holly\n",
+                                            "thumbnail": "",
+                                            "image": "",
+                                            "footer": "",
+                                            "timestamp": "false",
+                                            "savetovariable": "question6",
+                                            "savetovariabletype": "temp"
+                                          },
+                                          {
+                                            "name": "listener_1_1_1_1_1_1",
+                                            "category": "Reaction",
+                                            "type": "Add Reaction Listener",
+                                            "reactionActions": {
+                                              "1️⃣": [
+                                                {
+                                                  "name": "delete question1_2_2_1_1_3_4",
+                                                  "category": "Message",
+                                                  "type": "Delete Message",
+                                                  "messageActionRows": [],
+                                                  "varname": "${tempVars.question6.id}",
+                                                  "channelname": "${tempVars.quizchannel.id}"
+                                                },
+                                                {
+                                                  "name": "falsch_2_3_3_3_3",
+                                                  "category": "Message",
+                                                  "type": "Send Embed",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "color": "FF0000",
+                                                  "title": "Leider Falsch!",
+                                                  "url": "",
+                                                  "authorname": "",
+                                                  "authorimageurl": "",
+                                                  "authorlink": "",
+                                                  "description": "Es ist Lou.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                  "thumbnail": "",
+                                                  "image": "",
+                                                  "footer": "",
+                                                  "timestamp": "false",
+                                                  "savetovariable": "false6",
+                                                  "savetovariabletype": "temp"
+                                                },
+                                                {
+                                                  "name": "wait_3_3_3_4_7",
+                                                  "category": "Control",
+                                                  "type": "Wait",
+                                                  "messageActionRows": [],
+                                                  "waitduration": "3",
+                                                  "unit": "seconds"
+                                                },
+                                                {
+                                                  "name": "delete channel_2_3_3_3_3",
+                                                  "category": "Channel Action",
+                                                  "type": "Delete Channel",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "reason": ""
+                                                },
+                                                {
+                                                  "name": "set back_2_1_1_1_3",
+                                                  "category": "User Data",
+                                                  "type": "Set User Data",
+                                                  "messageActionRows": [],
+                                                  "user": "952883501106081882",
+                                                  "field": "isrunning",
+                                                  "fieldvalue": "0"
+                                                }
+                                              ],
+                                              "2️⃣": [
+                                                {
+                                                  "name": "delete question1_2_2_1_1_3_4_3",
+                                                  "category": "Message",
+                                                  "type": "Delete Message",
+                                                  "messageActionRows": [],
+                                                  "varname": "${tempVars.question6.id}",
+                                                  "channelname": "${tempVars.quizchannel.id}"
+                                                },
+                                                {
+                                                  "name": "falsch_2_3_3_3_3_2",
+                                                  "category": "Message",
+                                                  "type": "Send Embed",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "color": "FF0000",
+                                                  "title": "Leider Falsch!",
+                                                  "url": "",
+                                                  "authorname": "",
+                                                  "authorimageurl": "",
+                                                  "authorlink": "",
+                                                  "description": "Es ist Lou.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                  "thumbnail": "",
+                                                  "image": "",
+                                                  "footer": "",
+                                                  "timestamp": "false",
+                                                  "savetovariable": "false6",
+                                                  "savetovariabletype": "temp"
+                                                },
+                                                {
+                                                  "name": "wait_3_3_3_4_6",
+                                                  "category": "Control",
+                                                  "type": "Wait",
+                                                  "messageActionRows": [],
+                                                  "waitduration": "3",
+                                                  "unit": "seconds"
+                                                },
+                                                {
+                                                  "name": "delete channel_2_3_3_3_3_2",
+                                                  "category": "Channel Action",
+                                                  "type": "Delete Channel",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "reason": ""
+                                                },
+                                                {
+                                                  "name": "set back_2_1_1_1_2",
+                                                  "category": "User Data",
+                                                  "type": "Set User Data",
+                                                  "messageActionRows": [],
+                                                  "user": "952883501106081882",
+                                                  "field": "isrunning",
+                                                  "fieldvalue": "0"
+                                                }
+                                              ],
+                                              "3️⃣": [
+                                                {
+                                                  "name": "delete question1_2_2_1_1_3_4_2",
+                                                  "category": "Message",
+                                                  "type": "Delete Message",
+                                                  "messageActionRows": [],
+                                                  "varname": "${tempVars.question6.id}",
+                                                  "channelname": "${tempVars.quizchannel.id}"
+                                                },
+                                                {
+                                                  "name": "richtig_1_1_1_1_1",
+                                                  "category": "Message",
+                                                  "type": "Send Embed",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "color": "12FF26",
+                                                  "title": "RICHTIG!",
+                                                  "url": "",
+                                                  "authorname": "",
+                                                  "authorimageurl": "",
+                                                  "authorlink": "",
+                                                  "description": "Dein Preis wartet auf dich!",
+                                                  "thumbnail": "",
+                                                  "image": "",
+                                                  "footer": "",
+                                                  "timestamp": "false",
+                                                  "savetovariable": "right6",
+                                                  "savetovariabletype": "temp"
+                                                },
+                                                {
+                                                  "name": "wait_3_3_3_4_5",
+                                                  "category": "Control",
+                                                  "type": "Wait",
+                                                  "messageActionRows": [],
+                                                  "waitduration": "3",
+                                                  "unit": "seconds"
+                                                },
+                                                {
+                                                  "name": "delete question1_1_2_1_1_1_1_1_1",
+                                                  "category": "Message",
+                                                  "type": "Delete Message",
+                                                  "messageActionRows": [],
+                                                  "varname": "${tempVars.right6.id}",
+                                                  "channelname": "${tempVars.quizchannel.id}"
+                                                },
+                                                {
+                                                  "name": "reaction menu_1_1_1_1_1_1_1",
+                                                  "category": "Message",
+                                                  "type": "Send Embed",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "color": "70FF4D",
+                                                  "title": "7.Frage",
+                                                  "url": "",
+                                                  "authorname": "Quizbot",
+                                                  "authorimageurl": "",
+                                                  "authorlink": "",
+                                                  "description": "Wer ist Lehrer für Kampf und Überleben an der Clearwater High?\n\n1️⃣ Bill Brighteye\n2️⃣ James Bridger\n3️⃣ Isidore Ellwood\n4️⃣ Sarah Calloway\n",
+                                                  "thumbnail": "",
+                                                  "image": "",
+                                                  "footer": "",
+                                                  "timestamp": "false",
+                                                  "savetovariable": "question7",
+                                                  "savetovariabletype": "temp"
+                                                },
+                                                {
+                                                  "name": "listener_1_2",
+                                                  "category": "Reaction",
+                                                  "type": "Add Reaction Listener",
+                                                  "reactionActions": {
+                                                    "1️⃣": [
+                                                      {
+                                                        "name": "delete question1_6",
+                                                        "category": "Message",
+                                                        "type": "Delete Message",
+                                                        "messageActionRows": [],
+                                                        "varname": "${tempVars.question7.id}",
+                                                        "channelname": "${tempVars.quizchannel.id}"
+                                                      },
+                                                      {
+                                                        "name": "richtig_2",
+                                                        "category": "Message",
+                                                        "type": "Send Embed",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "color": "12FF26",
+                                                        "title": "RICHTIG!",
+                                                        "url": "",
+                                                        "authorname": "",
+                                                        "authorimageurl": "",
+                                                        "authorlink": "",
+                                                        "description": "Nur noch 3 Fragen!",
+                                                        "thumbnail": "",
+                                                        "image": "",
+                                                        "footer": "",
+                                                        "timestamp": "false",
+                                                        "savetovariable": "right7",
+                                                        "savetovariabletype": "temp"
+                                                      },
+                                                      {
+                                                        "name": "wait_4",
+                                                        "category": "Control",
+                                                        "type": "Wait",
+                                                        "messageActionRows": [],
+                                                        "waitduration": "3",
+                                                        "unit": "seconds"
+                                                      },
+                                                      {
+                                                        "name": "delete question1_1_2_1_2",
+                                                        "category": "Message",
+                                                        "type": "Delete Message",
+                                                        "messageActionRows": [],
+                                                        "varname": "${tempVars.right7.id}",
+                                                        "channelname": "${tempVars.quizchannel.id}"
+                                                      },
+                                                      {
+                                                        "name": "reaction menu_1_1_2",
+                                                        "category": "Message",
+                                                        "type": "Send Embed",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "color": "70FF4D",
+                                                        "title": "8.Frage",
+                                                        "url": "",
+                                                        "authorname": "Quizbot",
+                                                        "authorimageurl": "",
+                                                        "authorlink": "",
+                                                        "description": "Wie heißt der einzige bekannte Tripel Wandler?\n\n1️⃣ Bill Brighteye\n2️⃣ Andrew Milling\n3️⃣ Mr Goodfellow\n4️⃣ Mr Garcia\n",
+                                                        "thumbnail": "",
+                                                        "image": "",
+                                                        "footer": "",
+                                                        "timestamp": "false",
+                                                        "savetovariable": "question8",
+                                                        "savetovariabletype": "temp"
+                                                      },
+                                                      {
+                                                        "name": "listener_1_2_1",
+                                                        "category": "Reaction",
+                                                        "type": "Add Reaction Listener",
+                                                        "reactionActions": {
+                                                          "1️⃣": [
+                                                            {
+                                                              "name": "delete question1_6_1",
+                                                              "category": "Message",
+                                                              "type": "Delete Message",
+                                                              "messageActionRows": [],
+                                                              "varname": "${tempVars.question8.id}",
+                                                              "channelname": "${tempVars.quizchannel.id}"
+                                                            },
+                                                            {
+                                                              "name": "falsch_3_2_1",
+                                                              "category": "Message",
+                                                              "type": "Send Embed",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "color": "FF0000",
+                                                              "title": "Leider Falsch!",
+                                                              "url": "",
+                                                              "authorname": "",
+                                                              "authorimageurl": "",
+                                                              "authorlink": "",
+                                                              "description": "Es ist Mr Goodfellow. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                              "thumbnail": "",
+                                                              "image": "",
+                                                              "footer": "",
+                                                              "timestamp": "false",
+                                                              "savetovariable": "false8",
+                                                              "savetovariabletype": "temp"
+                                                            },
+                                                            {
+                                                              "name": "wait_4_7",
+                                                              "category": "Control",
+                                                              "type": "Wait",
+                                                              "messageActionRows": [],
+                                                              "waitduration": "3",
+                                                              "unit": "seconds"
+                                                            },
+                                                            {
+                                                              "name": "delete channel_3_5",
+                                                              "category": "Channel Action",
+                                                              "type": "Delete Channel",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "reason": ""
+                                                            },
+                                                            {
+                                                              "name": "set back_2_1_3",
+                                                              "category": "User Data",
+                                                              "type": "Set User Data",
+                                                              "messageActionRows": [],
+                                                              "user": "952883501106081882",
+                                                              "field": "isrunning",
+                                                              "fieldvalue": "0"
+                                                            }
+                                                          ],
+                                                          "2️⃣": [
+                                                            {
+                                                              "name": "delete question1_6_1_3",
+                                                              "category": "Message",
+                                                              "type": "Delete Message",
+                                                              "messageActionRows": [],
+                                                              "varname": "${tempVars.question8.id}",
+                                                              "channelname": "${tempVars.quizchannel.id}"
+                                                            },
+                                                            {
+                                                              "name": "falsch_3_2_1_2",
+                                                              "category": "Message",
+                                                              "type": "Send Embed",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "color": "FF0000",
+                                                              "title": "Leider Falsch!",
+                                                              "url": "",
+                                                              "authorname": "",
+                                                              "authorimageurl": "",
+                                                              "authorlink": "",
+                                                              "description": "Es ist Mr Goodfellow. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                              "thumbnail": "",
+                                                              "image": "",
+                                                              "footer": "",
+                                                              "timestamp": "false",
+                                                              "savetovariable": "false8",
+                                                              "savetovariabletype": "temp"
+                                                            },
+                                                            {
+                                                              "name": "wait_4_6",
+                                                              "category": "Control",
+                                                              "type": "Wait",
+                                                              "messageActionRows": [],
+                                                              "waitduration": "3",
+                                                              "unit": "seconds"
+                                                            },
+                                                            {
+                                                              "name": "delete channel_3_4",
+                                                              "category": "Channel Action",
+                                                              "type": "Delete Channel",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "reason": ""
+                                                            },
+                                                            {
+                                                              "name": "set back_2_1_2",
+                                                              "category": "User Data",
+                                                              "type": "Set User Data",
+                                                              "messageActionRows": [],
+                                                              "user": "952883501106081882",
+                                                              "field": "isrunning",
+                                                              "fieldvalue": "0"
+                                                            }
+                                                          ],
+                                                          "3️⃣": [
+                                                            {
+                                                              "name": "delete question1_6_1_2",
+                                                              "category": "Message",
+                                                              "type": "Delete Message",
+                                                              "messageActionRows": [],
+                                                              "varname": "${tempVars.question8.id}",
+                                                              "channelname": "${tempVars.quizchannel.id}"
+                                                            },
+                                                            {
+                                                              "name": "richtig_2_1",
+                                                              "category": "Message",
+                                                              "type": "Send Embed",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "color": "12FF26",
+                                                              "title": "RICHTIG!",
+                                                              "url": "",
+                                                              "authorname": "",
+                                                              "authorimageurl": "",
+                                                              "authorlink": "",
+                                                              "description": "Fast geschafft!",
+                                                              "thumbnail": "",
+                                                              "image": "",
+                                                              "footer": "",
+                                                              "timestamp": "false",
+                                                              "savetovariable": "right8",
+                                                              "savetovariabletype": "temp"
+                                                            },
+                                                            {
+                                                              "name": "wait_4_5",
+                                                              "category": "Control",
+                                                              "type": "Wait",
+                                                              "messageActionRows": [],
+                                                              "waitduration": "3",
+                                                              "unit": "seconds"
+                                                            },
+                                                            {
+                                                              "name": "delete question1_1_2_1_2_1",
+                                                              "category": "Message",
+                                                              "type": "Delete Message",
+                                                              "messageActionRows": [],
+                                                              "varname": "${tempVars.right8.id}",
+                                                              "channelname": "${tempVars.quizchannel.id}"
+                                                            },
+                                                            {
+                                                              "name": "reaction menu_1_1_2_1",
+                                                              "category": "Message",
+                                                              "type": "Send Embed",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "color": "70FF4D",
+                                                              "title": "9.Frage",
+                                                              "url": "",
+                                                              "authorname": "Quizbot",
+                                                              "authorimageurl": "",
+                                                              "authorlink": "",
+                                                              "description": "Wie heißt der Tag an dem Andrew Milling es den\nMenschen heimzahlen will?\n\n1️⃣ Der große Tag\n2️⃣ Tag der Rache\n3️⃣ Andrews Tag\n4️⃣ Rache Tag\n",
+                                                              "thumbnail": "",
+                                                              "image": "",
+                                                              "footer": "",
+                                                              "timestamp": "false",
+                                                              "savetovariable": "question9",
+                                                              "savetovariabletype": "temp"
+                                                            },
+                                                            {
+                                                              "name": "listener_1_2_1_1",
+                                                              "category": "Reaction",
+                                                              "type": "Add Reaction Listener",
+                                                              "reactionActions": {
+                                                                "1️⃣": [
+                                                                  {
+                                                                    "name": "delete question1_6_1_4",
+                                                                    "category": "Message",
+                                                                    "type": "Delete Message",
+                                                                    "messageActionRows": [],
+                                                                    "varname": "${tempVars.question9.id}",
+                                                                    "channelname": "${tempVars.quizchannel.id}"
+                                                                  },
+                                                                  {
+                                                                    "name": "falsch_3_2_1_3",
+                                                                    "category": "Message",
+                                                                    "type": "Send Embed",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "color": "FF0000",
+                                                                    "title": "Leider Falsch!",
+                                                                    "url": "",
+                                                                    "authorname": "",
+                                                                    "authorimageurl": "",
+                                                                    "authorlink": "",
+                                                                    "description": "Er heißt Tag der Rache. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                                    "thumbnail": "",
+                                                                    "image": "",
+                                                                    "footer": "",
+                                                                    "timestamp": "false",
+                                                                    "savetovariable": "false9",
+                                                                    "savetovariabletype": "temp"
+                                                                  },
+                                                                  {
+                                                                    "name": "wait_4_7_1",
+                                                                    "category": "Control",
+                                                                    "type": "Wait",
+                                                                    "messageActionRows": [],
+                                                                    "waitduration": "3",
+                                                                    "unit": "seconds"
+                                                                  },
+                                                                  {
+                                                                    "name": "delete channel_3_5_3",
+                                                                    "category": "Channel Action",
+                                                                    "type": "Delete Channel",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "reason": ""
+                                                                  },
+                                                                  {
+                                                                    "name": "set back_2_3",
+                                                                    "category": "User Data",
+                                                                    "type": "Set User Data",
+                                                                    "messageActionRows": [],
+                                                                    "user": "952883501106081882",
+                                                                    "field": "isrunning",
+                                                                    "fieldvalue": "0"
+                                                                  }
+                                                                ],
+                                                                "2️⃣": [
+                                                                  {
+                                                                    "name": "delete question1_6_1_4_3",
+                                                                    "category": "Message",
+                                                                    "type": "Delete Message",
+                                                                    "messageActionRows": [],
+                                                                    "varname": "${tempVars.question9.id}",
+                                                                    "channelname": "${tempVars.quizchannel.id}"
+                                                                  },
+                                                                  {
+                                                                    "name": "richtig_2_1_1",
+                                                                    "category": "Message",
+                                                                    "type": "Send Embed",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "color": "12FF26",
+                                                                    "title": "RICHTIG!",
+                                                                    "url": "",
+                                                                    "authorname": "",
+                                                                    "authorimageurl": "",
+                                                                    "authorlink": "",
+                                                                    "description": "Eine Frage noch!",
+                                                                    "thumbnail": "",
+                                                                    "image": "",
+                                                                    "footer": "",
+                                                                    "timestamp": "false",
+                                                                    "savetovariable": "right9",
+                                                                    "savetovariabletype": "temp"
+                                                                  },
+                                                                  {
+                                                                    "name": "wait_4_7_1_3",
+                                                                    "category": "Control",
+                                                                    "type": "Wait",
+                                                                    "messageActionRows": [],
+                                                                    "waitduration": "3",
+                                                                    "unit": "seconds"
+                                                                  },
+                                                                  {
+                                                                    "name": "delete question1_1_2_1_2_1_1",
+                                                                    "category": "Message",
+                                                                    "type": "Delete Message",
+                                                                    "messageActionRows": [],
+                                                                    "varname": "${tempVars.right9.id}",
+                                                                    "channelname": "${tempVars.quizchannel.id}"
+                                                                  },
+                                                                  {
+                                                                    "name": "reaction menu_1_1_2_1_1",
+                                                                    "category": "Message",
+                                                                    "type": "Send Embed",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "color": "70FF4D",
+                                                                    "title": "10.Frage",
+                                                                    "url": "",
+                                                                    "authorname": "Quizbot",
+                                                                    "authorimageurl": "",
+                                                                    "authorlink": "",
+                                                                    "description": "Was verlangt Milling am Tag der Rache von\nseinen Unterstützern?\n\n1️⃣ Autos umzuwerfen\n2️⃣ nur Männer angreifen\n3️⃣ Häuser anzuzünden\n4️⃣ Kinder anzugreifen\n",
+                                                                    "thumbnail": "",
+                                                                    "image": "",
+                                                                    "footer": "",
+                                                                    "timestamp": "false",
+                                                                    "savetovariable": "question10",
+                                                                    "savetovariabletype": "temp"
+                                                                  },
+                                                                  {
+                                                                    "name": "listener_1_2_1_1_1",
+                                                                    "category": "Reaction",
+                                                                    "type": "Add Reaction Listener",
+                                                                    "reactionActions": {
+                                                                      "1️⃣": [
+                                                                        {
+                                                                          "name": "delete question1_6_1_4_4",
+                                                                          "category": "Message",
+                                                                          "type": "Delete Message",
+                                                                          "messageActionRows": [],
+                                                                          "varname": "${tempVars.question10.id}",
+                                                                          "channelname": "${tempVars.quizchannel.id}"
+                                                                        },
+                                                                        {
+                                                                          "name": "falsch_3_2_1_3_3",
+                                                                          "category": "Message",
+                                                                          "type": "Send Embed",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "color": "FF0000",
+                                                                          "title": "Leider Falsch!",
+                                                                          "url": "",
+                                                                          "authorname": "",
+                                                                          "authorimageurl": "",
+                                                                          "authorlink": "",
+                                                                          "description": "Er verlangte Kinder anzugreifen.\nKeine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                                          "thumbnail": "",
+                                                                          "image": "",
+                                                                          "footer": "",
+                                                                          "timestamp": "false",
+                                                                          "savetovariable": "false10",
+                                                                          "savetovariabletype": "temp"
+                                                                        },
+                                                                        {
+                                                                          "name": "wait_4_7_1_7",
+                                                                          "category": "Control",
+                                                                          "type": "Wait",
+                                                                          "messageActionRows": [],
+                                                                          "waitduration": "3",
+                                                                          "unit": "seconds"
+                                                                        },
+                                                                        {
+                                                                          "name": "delete channel_3_5_3_3",
+                                                                          "category": "Channel Action",
+                                                                          "type": "Delete Channel",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "reason": ""
+                                                                        },
+                                                                        {
+                                                                          "name": "set back_4",
+                                                                          "category": "User Data",
+                                                                          "type": "Set User Data",
+                                                                          "messageActionRows": [],
+                                                                          "user": "952883501106081882",
+                                                                          "field": "isrunning",
+                                                                          "fieldvalue": "0"
+                                                                        }
+                                                                      ],
+                                                                      "2️⃣": [
+                                                                        {
+                                                                          "name": "delete question1_6_1_4_4_3",
+                                                                          "category": "Message",
+                                                                          "type": "Delete Message",
+                                                                          "messageActionRows": [],
+                                                                          "varname": "${tempVars.question10.id}",
+                                                                          "channelname": "${tempVars.quizchannel.id}"
+                                                                        },
+                                                                        {
+                                                                          "name": "falsch_3_2_1_3_3_2",
+                                                                          "category": "Message",
+                                                                          "type": "Send Embed",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "color": "FF0000",
+                                                                          "title": "Leider Falsch!",
+                                                                          "url": "",
+                                                                          "authorname": "",
+                                                                          "authorimageurl": "",
+                                                                          "authorlink": "",
+                                                                          "description": "Er verlangte Kinder anzugreifen.\nKeine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                                          "thumbnail": "",
+                                                                          "image": "",
+                                                                          "footer": "",
+                                                                          "timestamp": "false",
+                                                                          "savetovariable": "false10",
+                                                                          "savetovariabletype": "temp"
+                                                                        },
+                                                                        {
+                                                                          "name": "wait_4_7_1_6",
+                                                                          "category": "Control",
+                                                                          "type": "Wait",
+                                                                          "messageActionRows": [],
+                                                                          "waitduration": "3",
+                                                                          "unit": "seconds"
+                                                                        },
+                                                                        {
+                                                                          "name": "delete channel_3_5_3_2",
+                                                                          "category": "Channel Action",
+                                                                          "type": "Delete Channel",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "reason": ""
+                                                                        },
+                                                                        {
+                                                                          "name": "set back_3",
+                                                                          "category": "User Data",
+                                                                          "type": "Set User Data",
+                                                                          "messageActionRows": [],
+                                                                          "user": "952883501106081882",
+                                                                          "field": "isrunning",
+                                                                          "fieldvalue": "0"
+                                                                        }
+                                                                      ],
+                                                                      "3️⃣": [
+                                                                        {
+                                                                          "name": "delete question1_6_1_4_4_2",
+                                                                          "category": "Message",
+                                                                          "type": "Delete Message",
+                                                                          "messageActionRows": [],
+                                                                          "varname": "${tempVars.question10.id}",
+                                                                          "channelname": "${tempVars.quizchannel.id}"
+                                                                        },
+                                                                        {
+                                                                          "name": "falsch_3_2_1_3_3_1",
+                                                                          "category": "Message",
+                                                                          "type": "Send Embed",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "color": "FF0000",
+                                                                          "title": "Leider Falsch!",
+                                                                          "url": "",
+                                                                          "authorname": "",
+                                                                          "authorimageurl": "",
+                                                                          "authorlink": "",
+                                                                          "description": "Er verlangte Kinder anzugreifen.\nKeine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                                          "thumbnail": "",
+                                                                          "image": "",
+                                                                          "footer": "",
+                                                                          "timestamp": "false",
+                                                                          "savetovariable": "false10",
+                                                                          "savetovariabletype": "temp"
+                                                                        },
+                                                                        {
+                                                                          "name": "wait_4_7_1_5",
+                                                                          "category": "Control",
+                                                                          "type": "Wait",
+                                                                          "messageActionRows": [],
+                                                                          "waitduration": "3",
+                                                                          "unit": "seconds"
+                                                                        },
+                                                                        {
+                                                                          "name": "delete channel_3_5_3_1",
+                                                                          "category": "Channel Action",
+                                                                          "type": "Delete Channel",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "reason": ""
+                                                                        },
+                                                                        {
+                                                                          "name": "set back_2",
+                                                                          "category": "User Data",
+                                                                          "type": "Set User Data",
+                                                                          "messageActionRows": [],
+                                                                          "user": "952883501106081882",
+                                                                          "field": "isrunning",
+                                                                          "fieldvalue": "0"
+                                                                        }
+                                                                      ],
+                                                                      "4️⃣": [
+                                                                        {
+                                                                          "name": "delete question1_6_1_4_4_1",
+                                                                          "category": "Message",
+                                                                          "type": "Delete Message",
+                                                                          "messageActionRows": [],
+                                                                          "varname": "${tempVars.question10.id}",
+                                                                          "channelname": "${tempVars.quizchannel.id}"
+                                                                        },
+                                                                        {
+                                                                          "name": "richtig_2_1_1_1",
+                                                                          "category": "Message",
+                                                                          "type": "Send Embed",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "color": "12FF26",
+                                                                          "title": "RICHTIG!",
+                                                                          "url": "",
+                                                                          "authorname": "",
+                                                                          "authorimageurl": "",
+                                                                          "authorlink": "",
+                                                                          "description": "Yay geschafft!",
+                                                                          "thumbnail": "",
+                                                                          "image": "",
+                                                                          "footer": "",
+                                                                          "timestamp": "false",
+                                                                          "savetovariable": "right10",
+                                                                          "savetovariabletype": "temp"
+                                                                        },
+                                                                        {
+                                                                          "name": "wait_4_7_1_4",
+                                                                          "category": "Control",
+                                                                          "type": "Wait",
+                                                                          "messageActionRows": [],
+                                                                          "waitduration": "3",
+                                                                          "unit": "seconds"
+                                                                        },
+                                                                        {
+                                                                          "name": "delete question1_1_2_1_2_1_1_1",
+                                                                          "category": "Message",
+                                                                          "type": "Delete Message",
+                                                                          "messageActionRows": [],
+                                                                          "varname": "${tempVars.right10.id}",
+                                                                          "channelname": "${tempVars.quizchannel.id}"
+                                                                        },
+                                                                        {
+                                                                          "name": "addrole",
+                                                                          "category": "User Action",
+                                                                          "type": "Add Role to User",
+                                                                          "messageActionRows": [],
+                                                                          "user": "${dbsVars.CommandAuthor.id}",
+                                                                          "rolename": "Woodwalkers Grundwissen"
+                                                                        },
+                                                                        {
+                                                                          "name": "remove quiztime",
+                                                                          "category": "User Action",
+                                                                          "type": "Remove Role From User",
+                                                                          "messageActionRows": [],
+                                                                          "user": "${dbsVars.CommandAuthor.id}",
+                                                                          "rolename": "953767861481013262",
+                                                                          "reason": "lal"
+                                                                        },
+                                                                        {
+                                                                          "name": "Gratulation",
+                                                                          "category": "Message",
+                                                                          "type": "Send Embed",
+                                                                          "messageActionRows": [],
+                                                                          "channelname": "${tempVars.quizchannel.id}",
+                                                                          "color": "12FF1E",
+                                                                          "title": "Gratulation!!!",
+                                                                          "url": "",
+                                                                          "authorname": "",
+                                                                          "authorimageurl": "",
+                                                                          "authorlink": "",
+                                                                          "description": "Du hast erfolgreich das Woodwalkers Quiz Stufe leicht abgeschlossen.\n\n\nDu bekommst nun die Woodwalkers Grundwissen Rolle. Wenn du noch nicht genug hast kannst du nun das nächst schwierigere Quiz probieren, um irgendwann Woodwalkers Experte zu sein.\n\n\nTippe auf ✅ um das Quiz zu schließen.",
+                                                                          "thumbnail": "",
+                                                                          "image": "",
+                                                                          "footer": "",
+                                                                          "timestamp": "false",
+                                                                          "savetovariable": "congrats",
+                                                                          "savetovariabletype": "temp"
+                                                                        },
+                                                                        {
+                                                                          "name": "listener for exit",
+                                                                          "category": "Reaction",
+                                                                          "type": "Add Reaction Listener",
+                                                                          "reactionActions": {
+                                                                            "✅": [
+                                                                              {
+                                                                                "name": "delete channel_3_5_3_3_1",
+                                                                                "category": "Channel Action",
+                                                                                "type": "Delete Channel",
+                                                                                "messageActionRows": [],
+                                                                                "channelname": "${tempVars.quizchannel.id}",
+                                                                                "reason": ""
+                                                                              },
+                                                                              {
+                                                                                "name": "set back",
+                                                                                "category": "User Data",
+                                                                                "type": "Set User Data",
+                                                                                "messageActionRows": [],
+                                                                                "user": "952883501106081882",
+                                                                                "field": "isrunning",
+                                                                                "fieldvalue": "0"
+                                                                              }
+                                                                            ]
+                                                                          },
+                                                                          "messageActionRows": [],
+                                                                          "message": "${tempVars.congrats.id}",
+                                                                          "duration": "0",
+                                                                          "reactionemoji": "emojilal",
+                                                                          "reactionuser": "userlal",
+                                                                          "react": "BOOL_TRUE@@"
+                                                                        }
+                                                                      ]
+                                                                    },
+                                                                    "messageActionRows": [],
+                                                                    "message": "${tempVars.question10.id}",
+                                                                    "duration": "0",
+                                                                    "reactionemoji": "reactionemoji1",
+                                                                    "reactionuser": "reactionuser1",
+                                                                    "react": "BOOL_TRUE@@"
+                                                                  }
+                                                                ],
+                                                                "3️⃣": [
+                                                                  {
+                                                                    "name": "delete question1_6_1_4_2",
+                                                                    "category": "Message",
+                                                                    "type": "Delete Message",
+                                                                    "messageActionRows": [],
+                                                                    "varname": "${tempVars.question9.id}",
+                                                                    "channelname": "${tempVars.quizchannel.id}"
+                                                                  },
+                                                                  {
+                                                                    "name": "falsch_3_2_1_3_2",
+                                                                    "category": "Message",
+                                                                    "type": "Send Embed",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "color": "FF0000",
+                                                                    "title": "Leider Falsch!",
+                                                                    "url": "",
+                                                                    "authorname": "",
+                                                                    "authorimageurl": "",
+                                                                    "authorlink": "",
+                                                                    "description": "Er heißt Tag der Rache. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                                    "thumbnail": "",
+                                                                    "image": "",
+                                                                    "footer": "",
+                                                                    "timestamp": "false",
+                                                                    "savetovariable": "false9",
+                                                                    "savetovariabletype": "temp"
+                                                                  },
+                                                                  {
+                                                                    "name": "wait_4_7_1_2",
+                                                                    "category": "Control",
+                                                                    "type": "Wait",
+                                                                    "messageActionRows": [],
+                                                                    "waitduration": "3",
+                                                                    "unit": "seconds"
+                                                                  },
+                                                                  {
+                                                                    "name": "delete channel_3_5_2",
+                                                                    "category": "Channel Action",
+                                                                    "type": "Delete Channel",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "reason": ""
+                                                                  },
+                                                                  {
+                                                                    "name": "set back_2_2",
+                                                                    "category": "User Data",
+                                                                    "type": "Set User Data",
+                                                                    "messageActionRows": [],
+                                                                    "user": "952883501106081882",
+                                                                    "field": "isrunning",
+                                                                    "fieldvalue": "0"
+                                                                  }
+                                                                ],
+                                                                "4️⃣": [
+                                                                  {
+                                                                    "name": "delete question1_6_1_4_1",
+                                                                    "category": "Message",
+                                                                    "type": "Delete Message",
+                                                                    "messageActionRows": [],
+                                                                    "varname": "${tempVars.question9.id}",
+                                                                    "channelname": "${tempVars.quizchannel.id}"
+                                                                  },
+                                                                  {
+                                                                    "name": "falsch_3_2_1_3_1",
+                                                                    "category": "Message",
+                                                                    "type": "Send Embed",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "color": "FF0000",
+                                                                    "title": "Leider Falsch!",
+                                                                    "url": "",
+                                                                    "authorname": "",
+                                                                    "authorimageurl": "",
+                                                                    "authorlink": "",
+                                                                    "description": "Er heißt Tag der Rache. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                                    "thumbnail": "",
+                                                                    "image": "",
+                                                                    "footer": "",
+                                                                    "timestamp": "false",
+                                                                    "savetovariable": "false9",
+                                                                    "savetovariabletype": "temp"
+                                                                  },
+                                                                  {
+                                                                    "name": "wait_4_7_1_1",
+                                                                    "category": "Control",
+                                                                    "type": "Wait",
+                                                                    "messageActionRows": [],
+                                                                    "waitduration": "3",
+                                                                    "unit": "seconds"
+                                                                  },
+                                                                  {
+                                                                    "name": "delete channel_3_5_1",
+                                                                    "category": "Channel Action",
+                                                                    "type": "Delete Channel",
+                                                                    "messageActionRows": [],
+                                                                    "channelname": "${tempVars.quizchannel.id}",
+                                                                    "reason": ""
+                                                                  },
+                                                                  {
+                                                                    "name": "set back_2_1",
+                                                                    "category": "User Data",
+                                                                    "type": "Set User Data",
+                                                                    "messageActionRows": [],
+                                                                    "user": "952883501106081882",
+                                                                    "field": "isrunning",
+                                                                    "fieldvalue": "0"
+                                                                  }
+                                                                ]
+                                                              },
+                                                              "messageActionRows": [],
+                                                              "message": "${tempVars.question9.id}",
+                                                              "duration": "0",
+                                                              "reactionemoji": "reactionemoji1",
+                                                              "reactionuser": "reactionuser1",
+                                                              "react": "BOOL_TRUE@@"
+                                                            }
+                                                          ],
+                                                          "4️⃣": [
+                                                            {
+                                                              "name": "delete question1_6_1_1",
+                                                              "category": "Message",
+                                                              "type": "Delete Message",
+                                                              "messageActionRows": [],
+                                                              "varname": "${tempVars.question8.id}",
+                                                              "channelname": "${tempVars.quizchannel.id}"
+                                                            },
+                                                            {
+                                                              "name": "falsch_3_2_1_1",
+                                                              "category": "Message",
+                                                              "type": "Send Embed",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "color": "FF0000",
+                                                              "title": "Leider Falsch!",
+                                                              "url": "",
+                                                              "authorname": "",
+                                                              "authorimageurl": "",
+                                                              "authorlink": "",
+                                                              "description": "Es ist Mr Goodfellow. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                              "thumbnail": "",
+                                                              "image": "",
+                                                              "footer": "",
+                                                              "timestamp": "false",
+                                                              "savetovariable": "false8",
+                                                              "savetovariabletype": "temp"
+                                                            },
+                                                            {
+                                                              "name": "wait_4_4",
+                                                              "category": "Control",
+                                                              "type": "Wait",
+                                                              "messageActionRows": [],
+                                                              "waitduration": "3",
+                                                              "unit": "seconds"
+                                                            },
+                                                            {
+                                                              "name": "delete channel_3_3",
+                                                              "category": "Channel Action",
+                                                              "type": "Delete Channel",
+                                                              "messageActionRows": [],
+                                                              "channelname": "${tempVars.quizchannel.id}",
+                                                              "reason": ""
+                                                            },
+                                                            {
+                                                              "name": "set back_2_1_1",
+                                                              "category": "User Data",
+                                                              "type": "Set User Data",
+                                                              "messageActionRows": [],
+                                                              "user": "952883501106081882",
+                                                              "field": "isrunning",
+                                                              "fieldvalue": "0"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "messageActionRows": [],
+                                                        "message": "${tempVars.question8.id}",
+                                                        "duration": "0",
+                                                        "reactionemoji": "reactionemoji1",
+                                                        "reactionuser": "reactionuser1",
+                                                        "react": "BOOL_TRUE@@"
+                                                      }
+                                                    ],
+                                                    "2️⃣": [
+                                                      {
+                                                        "name": "delete question1_3",
+                                                        "category": "Message",
+                                                        "type": "Delete Message",
+                                                        "messageActionRows": [],
+                                                        "varname": "${tempVars.question7.id}",
+                                                        "channelname": "${tempVars.quizchannel.id}"
+                                                      },
+                                                      {
+                                                        "name": "falsch_3_2",
+                                                        "category": "Message",
+                                                        "type": "Send Embed",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "color": "FF0000",
+                                                        "title": "Leider Falsch!",
+                                                        "url": "",
+                                                        "authorname": "",
+                                                        "authorimageurl": "",
+                                                        "authorlink": "",
+                                                        "description": "Bill Brighteye unterrichtet Kampf und Überleben. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                        "thumbnail": "",
+                                                        "image": "",
+                                                        "footer": "",
+                                                        "timestamp": "false",
+                                                        "savetovariable": "",
+                                                        "savetovariabletype": "temp"
+                                                      },
+                                                      {
+                                                        "name": "wait_4_3",
+                                                        "category": "Control",
+                                                        "type": "Wait",
+                                                        "messageActionRows": [],
+                                                        "waitduration": "3",
+                                                        "unit": "seconds"
+                                                      },
+                                                      {
+                                                        "name": "delete channel_3",
+                                                        "category": "Channel Action",
+                                                        "type": "Delete Channel",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "reason": ""
+                                                      },
+                                                      {
+                                                        "name": "set back_2_1_1_3",
+                                                        "category": "User Data",
+                                                        "type": "Set User Data",
+                                                        "messageActionRows": [],
+                                                        "user": "952883501106081882",
+                                                        "field": "isrunning",
+                                                        "fieldvalue": "0"
+                                                      }
+                                                    ],
+                                                    "3️⃣": [
+                                                      {
+                                                        "name": "delete question1_4",
+                                                        "category": "Message",
+                                                        "type": "Delete Message",
+                                                        "messageActionRows": [],
+                                                        "varname": "${tempVars.question7.id}",
+                                                        "channelname": "${tempVars.quizchannel.id}"
+                                                      },
+                                                      {
+                                                        "name": "falsch_3",
+                                                        "category": "Message",
+                                                        "type": "Send Embed",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "color": "FF0000",
+                                                        "title": "Leider Falsch!",
+                                                        "url": "",
+                                                        "authorname": "",
+                                                        "authorimageurl": "",
+                                                        "authorlink": "",
+                                                        "description": "Bill Brighteye unterrichtet Kampf und Überleben. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                        "thumbnail": "",
+                                                        "image": "",
+                                                        "footer": "",
+                                                        "timestamp": "false",
+                                                        "savetovariable": "",
+                                                        "savetovariabletype": "temp"
+                                                      },
+                                                      {
+                                                        "name": "wait_4_2",
+                                                        "category": "Control",
+                                                        "type": "Wait",
+                                                        "messageActionRows": [],
+                                                        "waitduration": "3",
+                                                        "unit": "seconds"
+                                                      },
+                                                      {
+                                                        "name": "delete channel_3_2",
+                                                        "category": "Channel Action",
+                                                        "type": "Delete Channel",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "reason": ""
+                                                      },
+                                                      {
+                                                        "name": "set back_2_1_1_2",
+                                                        "category": "User Data",
+                                                        "type": "Set User Data",
+                                                        "messageActionRows": [],
+                                                        "user": "952883501106081882",
+                                                        "field": "isrunning",
+                                                        "fieldvalue": "0"
+                                                      }
+                                                    ],
+                                                    "4️⃣": [
+                                                      {
+                                                        "name": "delete question1_5",
+                                                        "category": "Message",
+                                                        "type": "Delete Message",
+                                                        "messageActionRows": [],
+                                                        "varname": "${tempVars.question7.id}",
+                                                        "channelname": "${tempVars.quizchannel.id}"
+                                                      },
+                                                      {
+                                                        "name": "falsch_3_1",
+                                                        "category": "Message",
+                                                        "type": "Send Embed",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "color": "FF0000",
+                                                        "title": "Leider Falsch!",
+                                                        "url": "",
+                                                        "authorname": "",
+                                                        "authorimageurl": "",
+                                                        "authorlink": "",
+                                                        "description": "Bill Brighteye unterrichtet Kampf und Überleben. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                        "thumbnail": "",
+                                                        "image": "",
+                                                        "footer": "",
+                                                        "timestamp": "false",
+                                                        "savetovariable": "",
+                                                        "savetovariabletype": "temp"
+                                                      },
+                                                      {
+                                                        "name": "wait_4_1",
+                                                        "category": "Control",
+                                                        "type": "Wait",
+                                                        "messageActionRows": [],
+                                                        "waitduration": "3",
+                                                        "unit": "seconds"
+                                                      },
+                                                      {
+                                                        "name": "delete channel_3_1",
+                                                        "category": "Channel Action",
+                                                        "type": "Delete Channel",
+                                                        "messageActionRows": [],
+                                                        "channelname": "${tempVars.quizchannel.id}",
+                                                        "reason": ""
+                                                      },
+                                                      {
+                                                        "name": "set back_2_1_1_1",
+                                                        "category": "User Data",
+                                                        "type": "Set User Data",
+                                                        "messageActionRows": [],
+                                                        "user": "952883501106081882",
+                                                        "field": "isrunning",
+                                                        "fieldvalue": "0"
+                                                      }
+                                                    ]
+                                                  },
+                                                  "messageActionRows": [],
+                                                  "message": "${tempVars.question7.id}",
+                                                  "duration": "0",
+                                                  "reactionemoji": "reactionemoji1",
+                                                  "reactionuser": "reactionuser1",
+                                                  "react": "BOOL_TRUE@@"
+                                                }
+                                              ],
+                                              "4️⃣": [
+                                                {
+                                                  "name": "delete question1_2_2_1_1_3_4_1",
+                                                  "category": "Message",
+                                                  "type": "Delete Message",
+                                                  "messageActionRows": [],
+                                                  "varname": "${tempVars.question6.id}",
+                                                  "channelname": "${tempVars.quizchannel.id}"
+                                                },
+                                                {
+                                                  "name": "falsch_2_3_3_3_3_1",
+                                                  "category": "Message",
+                                                  "type": "Send Embed",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "color": "FF0000",
+                                                  "title": "Leider Falsch!",
+                                                  "url": "",
+                                                  "authorname": "",
+                                                  "authorimageurl": "",
+                                                  "authorlink": "",
+                                                  "description": "Es ist Lou.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                                  "thumbnail": "",
+                                                  "image": "",
+                                                  "footer": "",
+                                                  "timestamp": "false",
+                                                  "savetovariable": "false6",
+                                                  "savetovariabletype": "temp"
+                                                },
+                                                {
+                                                  "name": "wait_3_3_3_4_4",
+                                                  "category": "Control",
+                                                  "type": "Wait",
+                                                  "messageActionRows": [],
+                                                  "waitduration": "3",
+                                                  "unit": "seconds"
+                                                },
+                                                {
+                                                  "name": "delete channel_2_3_3_3_3_1",
+                                                  "category": "Channel Action",
+                                                  "type": "Delete Channel",
+                                                  "messageActionRows": [],
+                                                  "channelname": "${tempVars.quizchannel.id}",
+                                                  "reason": ""
+                                                },
+                                                {
+                                                  "name": "set back_2_1_1_1_1",
+                                                  "category": "User Data",
+                                                  "type": "Set User Data",
+                                                  "messageActionRows": [],
+                                                  "user": "952883501106081882",
+                                                  "field": "isrunning",
+                                                  "fieldvalue": "0"
+                                                }
+                                              ]
+                                            },
+                                            "messageActionRows": [],
+                                            "message": "${tempVars.question6.id}",
+                                            "duration": "0",
+                                            "reactionemoji": "reactionemoji1",
+                                            "reactionuser": "reactionuser1",
+                                            "react": "BOOL_TRUE@@"
+                                          }
+                                        ],
+                                        "3️⃣": [
+                                          {
+                                            "name": "delete question1_2_2_1_1_3_2",
+                                            "category": "Message",
+                                            "type": "Delete Message",
+                                            "messageActionRows": [],
+                                            "varname": "${tempVars.question5.id}",
+                                            "channelname": "${tempVars.quizchannel.id}"
+                                          },
+                                          {
+                                            "name": "falsch_2_3_3_3_2",
+                                            "category": "Message",
+                                            "type": "Send Embed",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "color": "FF0000",
+                                            "title": "Leider Falsch!",
+                                            "url": "",
+                                            "authorname": "",
+                                            "authorimageurl": "",
+                                            "authorlink": "",
+                                            "description": "Es ist Andrew Milling.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                            "thumbnail": "",
+                                            "image": "",
+                                            "footer": "",
+                                            "timestamp": "false",
+                                            "savetovariable": "false5",
+                                            "savetovariabletype": "temp"
+                                          },
+                                          {
+                                            "name": "wait_3_3_3_4_2",
+                                            "category": "Control",
+                                            "type": "Wait",
+                                            "messageActionRows": [],
+                                            "waitduration": "3",
+                                            "unit": "seconds"
+                                          },
+                                          {
+                                            "name": "delete channel_2_3_3_3_2",
+                                            "category": "Channel Action",
+                                            "type": "Delete Channel",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "reason": ""
+                                          },
+                                          {
+                                            "name": "set back_2_1_1_1_1_2",
+                                            "category": "User Data",
+                                            "type": "Set User Data",
+                                            "messageActionRows": [],
+                                            "user": "952883501106081882",
+                                            "field": "isrunning",
+                                            "fieldvalue": "0"
+                                          }
+                                        ],
+                                        "4️⃣": [
+                                          {
+                                            "name": "delete question1_2_2_1_1_3_1",
+                                            "category": "Message",
+                                            "type": "Delete Message",
+                                            "messageActionRows": [],
+                                            "varname": "${tempVars.question5.id}",
+                                            "channelname": "${tempVars.quizchannel.id}"
+                                          },
+                                          {
+                                            "name": "falsch_2_3_3_3_1",
+                                            "category": "Message",
+                                            "type": "Send Embed",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "color": "FF0000",
+                                            "title": "Leider Falsch!",
+                                            "url": "",
+                                            "authorname": "",
+                                            "authorimageurl": "",
+                                            "authorlink": "",
+                                            "description": "Es ist Andrew Milling.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                            "thumbnail": "",
+                                            "image": "",
+                                            "footer": "",
+                                            "timestamp": "false",
+                                            "savetovariable": "false5",
+                                            "savetovariabletype": "temp"
+                                          },
+                                          {
+                                            "name": "wait_3_3_3_4_1",
+                                            "category": "Control",
+                                            "type": "Wait",
+                                            "messageActionRows": [],
+                                            "waitduration": "3",
+                                            "unit": "seconds"
+                                          },
+                                          {
+                                            "name": "delete channel_2_3_3_3_1",
+                                            "category": "Channel Action",
+                                            "type": "Delete Channel",
+                                            "messageActionRows": [],
+                                            "channelname": "${tempVars.quizchannel.id}",
+                                            "reason": ""
+                                          },
+                                          {
+                                            "name": "set back_2_1_1_1_1_1",
+                                            "category": "User Data",
+                                            "type": "Set User Data",
+                                            "messageActionRows": [],
+                                            "user": "952883501106081882",
+                                            "field": "isrunning",
+                                            "fieldvalue": "0"
+                                          }
+                                        ]
+                                      },
+                                      "messageActionRows": [],
+                                      "message": "${tempVars.question5.id}",
+                                      "duration": "0",
+                                      "reactionemoji": "reactionemoji1",
+                                      "reactionuser": "reactionuser1",
+                                      "react": "BOOL_TRUE@@"
+                                    }
+                                  ]
+                                },
+                                "messageActionRows": [],
+                                "message": "${tempVars.question4.id}",
+                                "duration": "0",
+                                "reactionemoji": "reactionemoji1",
+                                "reactionuser": "reactionuser1",
+                                "react": "BOOL_TRUE@@"
+                              }
+                            ],
+                            "3️⃣": [
+                              {
+                                "name": "delete question1_2_2_3",
+                                "category": "Message",
+                                "type": "Delete Message",
+                                "messageActionRows": [],
+                                "varname": "${tempVars.question3.id}",
+                                "channelname": "${tempVars.quizchannel.id}"
+                              },
+                              {
+                                "name": "falsch_2_3_2",
+                                "category": "Message",
+                                "type": "Send Embed",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "color": "FF0000",
+                                "title": "Leider Falsch!",
+                                "url": "",
+                                "authorname": "",
+                                "authorimageurl": "",
+                                "authorlink": "",
+                                "description": "Seine 2te Gestalt ist ein Kojote.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                "thumbnail": "",
+                                "image": "",
+                                "footer": "",
+                                "timestamp": "false",
+                                "savetovariable": "false3",
+                                "savetovariabletype": "temp"
+                              },
+                              {
+                                "name": "wait_3_3_2",
+                                "category": "Control",
+                                "type": "Wait",
+                                "messageActionRows": [],
+                                "waitduration": "3",
+                                "unit": "seconds"
+                              },
+                              {
+                                "name": "delete channel_2_3_2",
+                                "category": "Channel Action",
+                                "type": "Delete Channel",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "reason": ""
+                              },
+                              {
+                                "name": "set back_2_1_1_1_1_1_1_2",
+                                "category": "User Data",
+                                "type": "Set User Data",
+                                "messageActionRows": [],
+                                "user": "952883501106081882",
+                                "field": "isrunning",
+                                "fieldvalue": "0"
+                              }
+                            ],
+                            "4️⃣": [
+                              {
+                                "name": "delete question1_2_2_2",
+                                "category": "Message",
+                                "type": "Delete Message",
+                                "messageActionRows": [],
+                                "varname": "${tempVars.question3.id}",
+                                "channelname": "${tempVars.quizchannel.id}"
+                              },
+                              {
+                                "name": "falsch_2_3_1",
+                                "category": "Message",
+                                "type": "Send Embed",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "color": "FF0000",
+                                "title": "Leider Falsch!",
+                                "url": "",
+                                "authorname": "",
+                                "authorimageurl": "",
+                                "authorlink": "",
+                                "description": "Seine 2te Gestalt ist ein Kojote.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                                "thumbnail": "",
+                                "image": "",
+                                "footer": "",
+                                "timestamp": "false",
+                                "savetovariable": "false3",
+                                "savetovariabletype": "temp"
+                              },
+                              {
+                                "name": "wait_3_3_1",
+                                "category": "Control",
+                                "type": "Wait",
+                                "messageActionRows": [],
+                                "waitduration": "3",
+                                "unit": "seconds"
+                              },
+                              {
+                                "name": "delete channel_2_3_1",
+                                "category": "Channel Action",
+                                "type": "Delete Channel",
+                                "messageActionRows": [],
+                                "channelname": "${tempVars.quizchannel.id}",
+                                "reason": ""
+                              },
+                              {
+                                "name": "set back_2_1_1_1_1_1_1_1",
+                                "category": "User Data",
+                                "type": "Set User Data",
+                                "messageActionRows": [],
+                                "user": "952883501106081882",
+                                "field": "isrunning",
+                                "fieldvalue": "0"
+                              }
+                            ]
+                          },
+                          "messageActionRows": [],
+                          "message": "${tempVars.question3.id}",
+                          "duration": "0",
+                          "reactionemoji": "reactionemoji1",
+                          "reactionuser": "reactionuser1",
+                          "react": "BOOL_TRUE@@"
+                        }
+                      ],
+                      "2️⃣": [
+                        {
+                          "name": "delete question1_2",
+                          "category": "Message",
+                          "type": "Delete Message",
+                          "messageActionRows": [],
+                          "varname": "${tempVars.question2.id}",
+                          "channelname": "${tempVars.quizchannel.id}"
+                        },
+                        {
+                          "name": "falsch_2",
+                          "category": "Message",
+                          "type": "Send Embed",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "color": "FF0000",
+                          "title": "Leider Falsch!",
+                          "url": "",
+                          "authorname": "",
+                          "authorimageurl": "",
+                          "authorlink": "",
+                          "description": "Die Schule heißt Clearwater High.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                          "thumbnail": "",
+                          "image": "",
+                          "footer": "",
+                          "timestamp": "false",
+                          "savetovariable": "false2",
+                          "savetovariabletype": "temp"
+                        },
+                        {
+                          "name": "wait_3",
+                          "category": "Control",
+                          "type": "Wait",
+                          "messageActionRows": [],
+                          "waitduration": "3",
+                          "unit": "seconds"
+                        },
+                        {
+                          "name": "delete channel_2",
+                          "category": "Channel Action",
+                          "type": "Delete Channel",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "reason": ""
+                        },
+                        {
+                          "name": "set back_2_1_1_1_1_1_1_1_3",
+                          "category": "User Data",
+                          "type": "Set User Data",
+                          "messageActionRows": [],
+                          "user": "952883501106081882",
+                          "field": "isrunning",
+                          "fieldvalue": "0"
+                        }
+                      ],
+                      "3️⃣": [
+                        {
+                          "name": "delete question1_2_1",
+                          "category": "Message",
+                          "type": "Delete Message",
+                          "messageActionRows": [],
+                          "varname": "${tempVars.question2.id}",
+                          "channelname": "${tempVars.quizchannel.id}"
+                        },
+                        {
+                          "name": "falsch_2_2",
+                          "category": "Message",
+                          "type": "Send Embed",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "color": "FF0000",
+                          "title": "Leider Falsch!",
+                          "url": "",
+                          "authorname": "",
+                          "authorimageurl": "",
+                          "authorlink": "",
+                          "description": "Die Schule heißt Clearwater High.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                          "thumbnail": "",
+                          "image": "",
+                          "footer": "",
+                          "timestamp": "false",
+                          "savetovariable": "",
+                          "savetovariabletype": "temp"
+                        },
+                        {
+                          "name": "wait_3_2",
+                          "category": "Control",
+                          "type": "Wait",
+                          "messageActionRows": [],
+                          "waitduration": "3",
+                          "unit": "seconds"
+                        },
+                        {
+                          "name": "delete channel_2_2",
+                          "category": "Channel Action",
+                          "type": "Delete Channel",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "reason": ""
+                        },
+                        {
+                          "name": "set back_2_1_1_1_1_1_1_1_2",
+                          "category": "User Data",
+                          "type": "Set User Data",
+                          "messageActionRows": [],
+                          "user": "952883501106081882",
+                          "field": "isrunning",
+                          "fieldvalue": "0"
+                        }
+                      ],
+                      "4️⃣": [
+                        {
+                          "name": "delete question1_2_1_1",
+                          "category": "Message",
+                          "type": "Delete Message",
+                          "messageActionRows": [],
+                          "varname": "${tempVars.question2.id}",
+                          "channelname": "${tempVars.quizchannel.id}"
+                        },
+                        {
+                          "name": "falsch_2_1",
+                          "category": "Message",
+                          "type": "Send Embed",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "color": "FF0000",
+                          "title": "Leider Falsch!",
+                          "url": "",
+                          "authorname": "",
+                          "authorimageurl": "",
+                          "authorlink": "",
+                          "description": "Die Schule heißt Clearwater High.\nKeine Sorge probier es einfach nochmal.\nDas Quiz schließt sich automatisch.",
+                          "thumbnail": "",
+                          "image": "",
+                          "footer": "",
+                          "timestamp": "false",
+                          "savetovariable": "",
+                          "savetovariabletype": "temp"
+                        },
+                        {
+                          "name": "wait_3_1",
+                          "category": "Control",
+                          "type": "Wait",
+                          "messageActionRows": [],
+                          "waitduration": "3",
+                          "unit": "seconds"
+                        },
+                        {
+                          "name": "delete channel_2_1",
+                          "category": "Channel Action",
+                          "type": "Delete Channel",
+                          "messageActionRows": [],
+                          "channelname": "${tempVars.quizchannel.id}",
+                          "reason": ""
+                        },
+                        {
+                          "name": "set back_2_1_1_1_1_1_1_1_1",
+                          "category": "User Data",
+                          "type": "Set User Data",
+                          "messageActionRows": [],
+                          "user": "952883501106081882",
+                          "field": "isrunning",
+                          "fieldvalue": "0"
+                        }
+                      ]
+                    },
+                    "messageActionRows": [],
+                    "message": "${tempVars.question2.id}",
+                    "duration": "0",
+                    "reactionemoji": "reactionemoji1",
+                    "reactionuser": "reactionuser1",
+                    "react": "BOOL_TRUE@@"
+                  }
+                ],
+                "4️⃣": [
+                  {
+                    "name": "delete question1_1_1",
+                    "category": "Message",
+                    "type": "Delete Message",
+                    "messageActionRows": [],
+                    "varname": "${tempVars.question1.id}",
+                    "channelname": "${tempVars.quizchannel.id}"
+                  },
+                  {
+                    "name": "falsch_1_1",
+                    "category": "Message",
+                    "type": "Send Embed",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "color": "FF0000",
+                    "title": "Leider Falsch!",
+                    "url": "",
+                    "authorname": "",
+                    "authorimageurl": "",
+                    "authorlink": "",
+                    "description": "Carags Menschenname lautet Jay. Keine Sorge\nprobier es einfach nochmal.\nDas Quiz schließt sich von selbst.",
+                    "thumbnail": "",
+                    "image": "",
+                    "footer": "",
+                    "timestamp": "false",
+                    "savetovariable": "",
+                    "savetovariabletype": "temp"
+                  },
+                  {
+                    "name": "wait_2",
+                    "category": "Control",
+                    "type": "Wait",
+                    "messageActionRows": [],
+                    "waitduration": "3",
+                    "unit": "seconds"
+                  },
+                  {
+                    "name": "delete channel_1_2",
+                    "category": "Channel Action",
+                    "type": "Delete Channel",
+                    "messageActionRows": [],
+                    "channelname": "${tempVars.quizchannel.id}",
+                    "reason": ""
+                  },
+                  {
+                    "name": "set back_2_1_1_1_1_1_1_1_1_1",
+                    "category": "User Data",
+                    "type": "Set User Data",
+                    "messageActionRows": [],
+                    "user": "952883501106081882",
+                    "field": "isrunning",
+                    "fieldvalue": "0"
+                  }
+                ]
+              },
+              "messageActionRows": [],
+              "message": "${tempVars.question1.id}",
+              "duration": "0",
+              "reactionemoji": "reactionemoji1",
+              "reactionuser": "reactionuser1",
+              "react": "BOOL_TRUE@@"
+            }
+          ],
+          "messageActionRows": [],
+          "user": "952883501106081882",
+          "field": "isrunning",
+          "compare": "equal to",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "name": "fix",
+      "actions": [
+        {
+          "name": "set back_1",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "952883501106081882",
+          "field": "isrunning",
+          "fieldvalue": "0"
+        }
+      ]
+    },
+    {
+      "name": "einführung",
+      "actions": [
+        {
+          "name": "get started",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "24FF2B",
+          "title": "Woodwalkers Quiz",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Dies ist die Woodwalker Quiz Kategorie. Hier können Sie ihr Wissen über Woodwalkers auf die Probe stellen. Es gibt 4 verschiedene Schwierigkeitsstufen nämlich Anfänger, Amateur, Profi und Experte. Am Anfang startest du mit den Basics und arbeitest dich hoch bis du bei Experte angelangt bist. Dein Wissen wird als Rolle in deinem Profil angezeigt, so können User, die Fragen haben sehen auf welchem Wissensstand jemand ist. Um das erste Quiz \nfreizuschalten drücke auf ✅.",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "einführung",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "listener",
+          "category": "Reaction",
+          "type": "Add Reaction Listener",
+          "reactionActions": {
+            "✅": [
+              {
+                "name": "add quiztime",
+                "category": "User Action",
+                "type": "Add Role to User",
+                "messageActionRows": [],
+                "user": "${tempVars.userfuck.id}",
+                "rolename": "Quiztime (WoWa)"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "message": "${tempVars.einführung.id}",
+          "duration": "0",
+          "reactionemoji": "emojifuck",
+          "reactionuser": "userfuck",
+          "react": "BOOL_TRUE@@"
+        }
+      ]
+    },
+    {
+      "name": "clear",
+      "perms": [
+        "administrator"
+      ],
+      "actions": [
+        {
+          "name": "store value",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "clearnumber",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "0"
+        },
+        {
+          "name": "eswf",
+          "category": "Channel Action",
+          "type": "Delete All Messages",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "msgcount": "${tempVars.clearnumber}"
+        }
+      ]
+    },
+    {
+      "name": "erklärung",
+      "actions": [
+        {
+          "name": "send erklärung",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "35FF2E",
+          "title": "Woodwalkers Quiz Anfänger",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Hier können Sie das Anfänger Woodwalkers Quiz spielen. Wenn Sie das Quiz erfolgreich abschließen, erhalten Sie die Woodwalkers Basics Rolle! Um das Quiz zu starten, schreiben Sie !start. Es wird automatisch ein neuer Text-Channel erstellt, indem Sie ihr Quiz spielen können. Viel Glück!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "erklärung",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}
