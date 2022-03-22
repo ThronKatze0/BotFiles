@@ -199,7 +199,7 @@ DBS.callNextEventAction = async function (type, varsE, index) {
 };
 
 DBS.startBot = async function () {
-    await DBS.Bot.login(DBS.SettingsFile.token)
+    await DBS.Bot.login(process.env.token)
         .then(value => {
             process.send("success");
         })
